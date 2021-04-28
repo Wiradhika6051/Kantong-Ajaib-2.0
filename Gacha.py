@@ -111,7 +111,7 @@ def gacha(consumables_database, inv_database, user):
         items = get_items(consumables_database, y[rarity])
         item = items[rand_val()%len(items)][1] # lalu item dalam rarity tersebut digacha
         print("\nSelamat anda mendapatkan",item+"!(Rarity {})".format(y[rarity]))
-        new_item = [user[0],item,'1',y[rarity]]
+        new_item = [str(user[0]),item,'1',y[rarity]]
         i = 0
         j = 0
         while i<len(inventory):
