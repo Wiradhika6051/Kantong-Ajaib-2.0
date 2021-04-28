@@ -1,28 +1,36 @@
 import hashing
-def register(database,user_data_file):
-    nama = input("Masukan nama:")
-    username = input("Masukan username:")
-    while(adaDiDatabase(database,username)):
-        print("Username anda harus unik!!!")
+import save
+def register(database,user_data_file,logined_user):
+    if(logined_user[5]=="admin"):
+        nama = input("Masukan nama:")
         username = input("Masukan username:")
-    password = input("Masukan password:")
-    alamat = input("Masukan alamat:")
-    #Cari last id
-    last_id =-1
-    for data in database:
-        last_id = data[0]
-    isiDatabase(last_id,nama.title(),username,hashing.hashing(password),alamat,user_data_file)
-    print("User",username,"telah berhasil register ke dalam Kantong Ajaib.")
+        while(adaDiDatabase(database,username)):
+            print("Username anda harus unik!!!")
+            username = input("Masukan username:")
+        password = input("Masukan password:")
+        alamat = input("Masukan alamat:")
+        #Cari last id
+        last_id = save.get_last_id(database)
+        new_entry = [str(last_id+1),username,nama.title(),alamat,password,"user"]
+        #new_entry = isiDatabase(last_id,nama.title(),username,hashing.hashing(password),alamat,user_data_file)
+        #print(new_entry)
+        database.append(new_entry)
+        # print(database)
+        print("User",username,"telah berhasil register ke dalam Kantong Ajaib.")
+        return database
+    else:
+        print("Akses ditolak. Anda bukan admin!!!")
 def adaDiDatabase(datas,username):
     for data in datas:
         if(data[1]==username):
             return True
     return False
+    """
 def isiDatabase(user_id,name,username,password,alamat,file_path):
     data_baru = ";".join([str(user_id+1),username,name,alamat,password,"user\n"])
-    f = open(file_path,"a+")
-    f.write(data_baru)
-    f.close()
+    save.isi_data(file_path,data_baru,"a+")
+    return [str(user_id+1),username,name,alamat,password,"user"]
+    """
 def valid(username,password,database):
     for data in database:
         if(data[1]==username and data[4]==password):
@@ -43,5 +51,3 @@ def login(datas):
     logined_user = get_user(username,hashing.hashing(password),datas)
     return logined_user
 
-
-#Kriptografi(Hashing)
