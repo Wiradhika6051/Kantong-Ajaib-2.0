@@ -99,7 +99,7 @@ def get_items(databases, rarity):
 def gacha(consumables_database, inv_database, user):
     # MELAKUKAN GACHA UNTUK MENDAPATKAN CONSUMABLE BARU YANG *mungkin* RARITY-NYA LEBIH TINGGI
     if user[5] == "user":      
-        inventory = search_inv(inv_database,user[0]) # user[0] dalam database user adalah user id
+        inventory = search_inv(inv_database,str(user[0])) # user[0] dalam database user adalah user id
         y = use_consumable(inventory,chance)
         choice = input("\nTambahkan item lagi? (y/n) : ")
         while choice=='y' or choice=='Y':
