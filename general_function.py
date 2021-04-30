@@ -1,6 +1,6 @@
 #general_function.py
 #File yang berisi fungsi-fungsi yang bersifat umum dan digunakan di berbagai file program
-
+import time
 def panjang(text):
 # Menghasilkan panjang dari sebuah list atau string (panjang dari semua variabel yang bisa diiterasi)
 # Kamus Lokal:
@@ -46,10 +46,8 @@ def split(line,delimiter):
     return argument_list
 
 def search_idx(database,noid):
-# Fungsi yang menghasilkan 
+# Fungsi yang menghasilkan indeks dimana nilai id dari database sama dengan noid pertama kali ditemukan
 # Kamus Lokal:
-# argument_list : array of string (Berisi data-data yang berhasil dipisahkan dari line)
-# argument: string (variabel untuk menyimpan data hasil parsing dari line sebelum ditambahkan ke list argument_list)
 # i:integer(kounter loop)
 # Algoritma
     i = 0
@@ -59,6 +57,11 @@ def search_idx(database,noid):
         i+=1
     return -1
 def max_idx(array,initial,idx,col):
+# Fungsi yang menghasilkan indeks dimana nilai elemen terbesar dari indeks initial hingga elemen terakhir array
+# Kamus Lokal:
+# maxidx : integer (indeks dengan elemen bernilai terbesar)
+# i : integer(kounter loop)
+# Algoritma
     maxidx=initial
     for i in range(initial+1,panjang(array)):
         if(array[i][col][idx]>array[maxidx][col][idx]):
@@ -66,6 +69,12 @@ def max_idx(array,initial,idx,col):
     return maxidx
 
 def sorting(array,col,idx):
+# Fungsi yang menghasilkan array dengan elemen terurut mengecil menggunakan selection sort
+# Kamus Lokal:
+# id_max : integer(indeks dengan elemen bernilai maksimum)
+# i : integer(kounter loop)
+# temp: array (variabel sementara untuk menyimpan array dengan elemen yang di sort bernilai terbesar)
+# Algoritma
     if(panjang(array)>1):
         for i in range(panjang(array)):
             id_max = max_idx(array,i,idx,col)
@@ -73,3 +82,18 @@ def sorting(array,col,idx):
             array[id_max] = array[i]
             array[i] = temp
     return array
+
+def loading_progress(pesan):        #Membuat pseudo-loading progress untuk memberikan kesan programnya sedang melakukan proses loading kepada pengguna
+# I.S. Proses Loading belum dimulai
+# F.S. Menampilkan pseuso-loading progress kepada pengguna
+# Kamus Lokal
+# i:integer(kounter loop)
+# Algoritma:                  
+    for i in range(4):
+        if i == 3:
+            print(pesan)
+            time.sleep(0.5)     
+        else:    
+            print(pesan, end="\r")
+            time.sleep(0.5)
+            pesan += "."

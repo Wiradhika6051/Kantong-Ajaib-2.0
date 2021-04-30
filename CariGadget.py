@@ -43,7 +43,7 @@ def carirarity(databases):
         print("Tidak ada gadget yang ditemukan")
         print()
 
-# F04 - PENCARIAN GADGET BERDASARKAN TAHUN
+# F04 - PENCARIAN GADGET BERDASARKAN TAHUN DITEMUKAN
 def caritahun(databases):
 # Mencari semua gadget sesuai dengan tahun dan kategori yang diinput pengguna dan menampilkan hasilnya. Jika tidak ada,maka mencetak "Tidak ada gadget yang ditemukan"
 # I.S. : databases tedefinisi

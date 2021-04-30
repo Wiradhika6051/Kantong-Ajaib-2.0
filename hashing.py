@@ -1,7 +1,7 @@
 #hashing.py
-#File yang berisi fungsi untuk melakukan hashing
+#File yang berisi fungsi untuk melakukan hashing(FB01)
 import general_function as general
-
+#FB01 - HASHING
 def hashing(text):
 #Fungsi yang menghasilkan nilai hashing berupa 16 digit kombinasi angka dan karakter dari text
 #Kamus Lokal:
@@ -39,3 +39,4 @@ def hashing(text):
             hash_text += chr(64+(int(string[i])+64+(2*pengacak))%59) 
         pengacak += count_ascii
     return hash_text
+
