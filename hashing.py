@@ -23,10 +23,8 @@ def hashing(text):
         string += str(ord(char)+general.basic_pangkat(2,iteration))
         iteration += 1
         count_ascii += ord(char)
-    #string = str(int(string) % 100000000) # Menghasilkan hash berisi 8 digit
     string = str(int(string) % general.basic_pangkat(10, 16))
     initial = 0
-    #while(general.panjang(string)<8):
     while(general.panjang(string)<16):
         string += str((initial+count_ascii)%10)
         initial += ord(first_char)
