@@ -1,11 +1,9 @@
 # tambahitem.py
 # Folder berisi fungsi untuk menambah entri item(F05)
 import general_function as general
-import constant
-import save
 
 #F05 - MENAMBAH ITEM
-def tambahitem(gadget_database,consumable_database,user,file_path,gadget_path,consumable_path):
+def tambahitem(gadget_database,consumable_database,user):
 # Fungsi untuk menambah item ke dalam database,menghasilkan database yang telah terupdate
 # Kamus Lokal
 # noid:string(id item yang ingin ditambahkan)

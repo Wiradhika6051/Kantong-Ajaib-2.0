@@ -1,7 +1,6 @@
 #load.py
 #FIle berisi fungsi yang berhubungan dengan loading data(F14)
 import argparse
-import time
 import sys
 import general_function as general
 import os

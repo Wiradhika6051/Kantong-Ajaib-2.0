@@ -1,11 +1,9 @@
 # tambahitem.py
 # Folder berisi fungsi untuk melakukan pengubahan jumlah item(F07)
 import general_function as general
-import save
-import constant
 
 #F07 - MENGUBAH JUMLAH GADGET ATAU CONSUMABLE PADA INVENTORI
-def ubahjumlah(user,gadget_database,consumable_database,file_path,gadget_path,consumable_path):
+def ubahjumlah(user,gadget_database,consumable_database):
 # Fungsi untuk mengubah jumlah item di database dan menghasilkan database yang telah diupdate
 # Kamus Lokal
 # noid:string(id item yang ingin diubah jumlahnya)

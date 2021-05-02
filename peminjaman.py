@@ -2,7 +2,6 @@
 # File yang berisi fungsi untuk melakukan peminjaman gadget(F08)
 import general_function as general
 import save
-import LoginRegister
 
 def sedang_dipinjam(database,id_gadget,id_peminjam):
 # Fungsi yang menghasilkan True jika gadget dengan jenis yang sama sedang dipinjam,selain itu False

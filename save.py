@@ -1,7 +1,6 @@
 #save.py
 #File yang berisi fungsi-fungsi yang berhubungan dengan fungsionalitas menyimpan data(F15)
 import os
-import time
 import constant
 import general_function as general
 import history

@@ -9,7 +9,6 @@
 
 #Input:username dan password,folder database
 #Output:Program inventarisasi kantong ajaib dari mulai menambah,,menghapus,dan mengubah jumlah item,mendaftarkan pengguna,meminjam,mengembalikan,dan mengambil item,hingga melihat riwayat peminjaman,pengembalian,dan pengambilan item
-import argparse
 import save
 import LoginRegister
 import Help
@@ -102,13 +101,13 @@ while run:
     elif(opsi=="help"):
         Help.help(user)
     elif(opsi=="register"):
-        user_database = LoginRegister.register(user_database,folder_path+"/user.csv",user)
+        user_database = LoginRegister.register(user_database,user)
     elif(opsi=="tambahitem"):
-        gadget_database,consumable_database = tambahitem.tambahitem(gadget_database,consumable_database,user,folder_path,"/gadget.csv","/consumable.csv")
+        gadget_database,consumable_database = tambahitem.tambahitem(gadget_database,consumable_database,user)
     elif(opsi=="hapusitem"):
         gadget_database,consumable_database = hapusitem.hapusitem(user,gadget_database,consumable_database)
     elif(opsi=="ubahjumlah"):
-        gadget_database,consumable_database  = ubahjumlah.ubahjumlah(user,gadget_database,consumable_database,folder_path,"/gadget.csv","/consumable.csv")
+        gadget_database,consumable_database  = ubahjumlah.ubahjumlah(user,gadget_database,consumable_database)
     elif(opsi=="riwayatpinjam"):
         history.see_borrow_history(borrow_history_database,user,user_database,gadget_database,3)
     elif(opsi=="riwayatkembali"):

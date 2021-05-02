@@ -35,7 +35,7 @@ def get_user(username,password,database):
             return data
 
 #F01 - REGISTER
-def register(database,user_data_file,logined_user):
+def register(database,logined_user):
 # Fungsi untuk mendaftarkan user baru ke entri di database user. Hanya bisa dilakukan oleh admin
 # Kamus Lokal:
 # nama:string(nama user yang ingin dimasukkan)
@@ -64,6 +64,7 @@ def register(database,user_data_file,logined_user):
         return database
     else:
         print("Akses ditolak. Anda bukan admin!!!")
+        return database
 
 #F02 - LOGIN
 def login(datas):
