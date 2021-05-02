@@ -151,20 +151,21 @@ def see_return_history(database,user_database,user,gadget_database,borrow_databa
         i = 0
         while lanjut and i<general.panjang(database):
             borrow_id = general.search_idx(borrow_database, database[i][1])
-            borrow_entry = borrow_database[borrow_id]
-            returner =search_item(user_database,borrow_entry[1])
-            item = search_item(gadget_database, borrow_entry[2])    
-            print("ID Pengembalian:        "+str(database[i][0]))
-            print("Nama Pengambil:         "+returner[2])
-            print("Nama Gadget:            "+item[1])
-            print("Tanggal Pengembalian:   "+database[i][2])
-            print("Jumlah:                 "+str(database[i][3]))
-            print()
-            i+=1
-            if(i%5==0):
-                jawaban = input("Apakah Anda ingin melihat 5 entri berikutnya?(y/n)")
-                if(jawaban=='n'):
-                    lanjut = False   
+            if(borrow_id!=-1):
+                borrow_entry = borrow_database[borrow_id]
+                returner =search_item(user_database,borrow_entry[1])
+                item = search_item(gadget_database, borrow_entry[2])    
+                print("ID Pengembalian:        "+str(database[i][0]))
+                print("Nama Pengambil:         "+returner[2])
+                print("Nama Gadget:            "+item[1])
+                print("Tanggal Pengembalian:   "+database[i][2])
+                print("Jumlah:                 "+str(database[i][3]))
+                print()
+                i+=1
+                if(i%5==0):
+                    jawaban = input("Apakah Anda ingin melihat 5 entri berikutnya?(y/n)")
+                    if(jawaban=='n'):
+                        lanjut = False   
         if(i==general.panjang(database)):       #Jika sudah di ujung database
             print("Tidak ada lagi entri yang ditemukan!!")
             print()

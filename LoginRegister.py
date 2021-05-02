@@ -58,7 +58,7 @@ def register(database,logined_user):
         alamat = input("Masukan alamat:")
         #Cari last id
         last_id = save.get_last_id(database)
-        new_entry = [str(last_id+1),username,nama.title(),alamat,hashing.hashing(password),"user"]
+        new_entry = [last_id+1,username,nama.title(),alamat,hashing.hashing(password),"user"]
         database.append(new_entry)
         print("User",username,"telah berhasil register ke dalam Kantong Ajaib.")
         return database

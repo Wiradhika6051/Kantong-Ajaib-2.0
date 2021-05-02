@@ -23,9 +23,10 @@ def kembalikan(user,gadget_database,gadget_borrow_history,gadget_return_history)
         for i in range (general.panjang(gadget_borrow_history)):
             if(gadget_borrow_history[i][1]==user[0] and gadget_borrow_history[i][4]!=0):
                 gadget_id = general.search_idx(gadget_database,gadget_borrow_history[i][2])
-                gadget = gadget_database[gadget_id]
-                print(str(general.panjang(n)+1) + ".", gadget[1]+" (x"+str(gadget_borrow_history[i][4])+")")
-                n.append(i)
+                if(gadget_id!=-1):
+                    gadget = gadget_database[gadget_id]
+                    print(str(general.panjang(n)+1) + ".", gadget[1]+" (x"+str(gadget_borrow_history[i][4])+")")
+                    n.append(i)
         print() #ngasih enter
         nominjam = int(input("Masukan nomor peminjaman: "))
         if(nominjam<1 or nominjam>=general.panjang(n)+1):      #Jika diluar list
