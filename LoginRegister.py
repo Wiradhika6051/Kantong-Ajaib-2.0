@@ -4,13 +4,13 @@ import hashing
 import save
 
 
-def adaDiDatabase(datas,username,i):
-# Fungsi yang menghasilkan nilai True jika entri dengan usename "username" ada di database,selain itu False
+def adaDiDatabase(datas,elemen,i):
+# Fungsi yang menghasilkan nilai True jika entri dengan elemen "elemen" ada di database,selain itu False
 # Kamus Lokal:
 # data:User(variabel untuk looping)
 # Algoritma:
     for data in datas:
-        if(data[i]==username):
+        if(data[i]==elemen):
             return True
     return False
 
