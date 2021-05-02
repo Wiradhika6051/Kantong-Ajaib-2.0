@@ -111,22 +111,23 @@ def see_borrow_history(database,user,user_database,gadget_database,date_idx):
         i = 0
         while lanjut and i<general.panjang(database):
             borrower =search_item(user_database,database[i][1])
-            item = search_item(gadget_database, database[i][2])       
-            print("ID Peminjaman:        "+str(database[i][0]))
-            print("Nama Pengambil:       "+borrower[2])
-            print("Nama Gadget:          "+item[1])
-            print("Tanggal Peminjaman:   "+database[i][3])
-            print("Jumlah:               "+str(database[i][4]))
-            if(database[i][5]=="False"):                                            # Belum dikembalikan seluruhnya
-                print("Status:               Masih dalam peminjaman")
-            else:                                                                   # Sudah dikembalikan seluruhnya
-                print("Status:               Sudah dikembalikan seluruhnya")
-            print()                   
-            i+=1
-            if(i%5==0):
-                jawaban = input("Apakah Anda ingin melihat 5 entri berikutnya?(y/n)")
-                if(jawaban=='n'):                                                   # Pembacaan entri selesai
-                    lanjut = False
+            item = search_item(gadget_database, database[i][2])
+            if(item!=None):#Jika item ada di database       
+                print("ID Peminjaman:        "+str(database[i][0]))
+                print("Nama Pengambil:       "+borrower[2])
+                print("Nama Gadget:          "+item[1])
+                print("Tanggal Peminjaman:   "+database[i][3])
+                print("Jumlah:               "+str(database[i][4]))
+                if(database[i][5]=="False"):                                            # Belum dikembalikan seluruhnya
+                    print("Status:               Masih dalam peminjaman")
+                else:                                                                   # Sudah dikembalikan seluruhnya
+                    print("Status:               Sudah dikembalikan seluruhnya")
+                print()                   
+                i+=1
+                if(i%5==0):
+                    jawaban = input("Apakah Anda ingin melihat 5 entri berikutnya?(y/n)")
+                    if(jawaban=='n'):                                                   # Pembacaan entri selesai
+                        lanjut = False
         if(i==general.panjang(database)):                                   #Jika sudah di ujung database
             print("Tidak ada lagi entri yang ditemukan!!")
             print()
@@ -190,18 +191,19 @@ def see_take_history(database,user,user_database,consumable_database,date_idx):
         i = 0
         while lanjut and i<general.panjang(database):
             taker =search_item(user_database,database[i][1])
-            item = search_item(consumable_database, database[i][2])  
-            print("ID Pengambilan:       "+str(database[i][0]))
-            print("Nama Pengambil:       "+taker[2])
-            print("Nama Consumable:      "+item[1])
-            print("Tanggal Pengambilan:  "+database[i][3])
-            print("Jumlah:               "+str(database[i][4]))
-            print()            
-            i+=1
-            if(i%5==0):
-                jawaban = input("Apakah Anda ingin melihat 5 entri berikutnya?(y/n)")
-                if(jawaban=='n'):
-                    lanjut = False
+            item = search_item(consumable_database, database[i][2])
+            if(item!=None):     #Jika item ada di database  
+                print("ID Pengambilan:       "+str(database[i][0]))
+                print("Nama Pengambil:       "+taker[2])
+                print("Nama Consumable:      "+item[1])
+                print("Tanggal Pengambilan:  "+database[i][3])
+                print("Jumlah:               "+str(database[i][4]))
+                print()            
+                i+=1
+                if(i%5==0):
+                    jawaban = input("Apakah Anda ingin melihat 5 entri berikutnya?(y/n)")
+                    if(jawaban=='n'):
+                        lanjut = False
         if(i==general.panjang(database)):               #Jika sudah di ujung database
             print("Tidak ada lagi entri yang ditemukan!!")
             print()
