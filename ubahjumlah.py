@@ -10,6 +10,7 @@ def ubahjumlah(user,gadget_database,consumable_database):
 # i:integer(indeks item yang ingin diubah di database)
 # database:array of Data(database yang ingin diubah) 
 # Algoritma:
+#check 1
     noid =" "
     if user[5] == "admin":
         noid = input("Masukan ID item: ")
